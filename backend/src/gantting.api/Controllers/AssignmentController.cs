@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using gantting.api.models;
+using gantting.api.Data;
+using gantting.api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -15,11 +16,11 @@ namespace gantting.api.Controllers
         public IEnumerable<Assignment> _assignment = new Assignment[] {
             new Assignment() {
                 AssignmentId = 1,
-                AssignmentTitle = "Verificar Paineis",
-                AssignmentDescription = "Todos os dias, verificar os paineis.",
+                AssignmentTitle = "Verificar Painéis",
+                AssignmentDescription = "Todos os dias, verificar os painéis.",
                 AssignmentDateStart = "17/03/2022",
                 AssignmentDateEnd = "17/03/2022",
-                AssignmentImage = "foto2.png"
+                AssignmentImage = "print.png"
                 },
                 new Assignment() {
                 AssignmentId = 2,
@@ -27,20 +28,27 @@ namespace gantting.api.Controllers
                 AssignmentDescription = "Reunião de Backlog",
                 AssignmentDateStart = "21/03/2022",
                 AssignmentDateEnd = "21/03/2022",
-                AssignmentImage = "foto2.png"
+                AssignmentImage = "erro.png"
             }
         };
+        private readonly DataContext _context;
+
+        public AssignmentController(DataContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
         public IEnumerable<Assignment> Get()
         {
-            return _assignment;
+            return _context.Assignments;
         }
 
         [HttpGet("{id}")]
-        public IEnumerable<Assignment> GetById(int id)
+        public Assignment GetById(int id)
         {
-            return _assignment.Where(assignment => assignment.AssignmentId == id);
+            return _context.Assignments.FirstOrDefault(
+                assignment => assignment.AssignmentId == id);
         }
 
         [HttpPost]
