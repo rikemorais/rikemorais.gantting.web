@@ -11,29 +11,11 @@ namespace gantting.api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AssignmentController : ControllerBase
+    public class AssignmentsController : ControllerBase
     {
-        public IEnumerable<Assignment> _assignment = new Assignment[] {
-            new Assignment() {
-                AssignmentId = 1,
-                AssignmentTitle = "Verificar Painéis",
-                AssignmentDescription = "Todos os dias, verificar os painéis.",
-                AssignmentDateStart = "17/03/2022",
-                AssignmentDateEnd = "17/03/2022",
-                AssignmentImage = "print.png"
-                },
-                new Assignment() {
-                AssignmentId = 2,
-                AssignmentTitle = "Reunião Antônio Alves",
-                AssignmentDescription = "Reunião de Backlog",
-                AssignmentDateStart = "21/03/2022",
-                AssignmentDateEnd = "21/03/2022",
-                AssignmentImage = "erro.png"
-            }
-        };
         private readonly DataContext _context;
 
-        public AssignmentController(DataContext context)
+        public AssignmentsController(DataContext context)
         {
             _context = context;
         }
@@ -48,7 +30,7 @@ namespace gantting.api.Controllers
         public Assignment GetById(int id)
         {
             return _context.Assignments.FirstOrDefault(
-                assignment => assignment.AssignmentId == id);
+                assignment => assignment.id == id);
         }
 
         [HttpPost]

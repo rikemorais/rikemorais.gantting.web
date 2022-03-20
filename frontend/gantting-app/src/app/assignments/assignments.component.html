@@ -1,1 +1,7 @@
-<p>assignments works!</p>
+<h1>Assignments</h1>
+
+<div *ngFor="let assignment of assignments">
+    <p><b>Título: </b>{{assignment.title}}</p>
+    <p><b>Descrição: </b>{{assignment.description}}</p>
+    <hr>
+</div>

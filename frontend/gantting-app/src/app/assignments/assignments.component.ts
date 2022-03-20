@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssignmentsComponent implements OnInit {
 
-  constructor() { }
+  public assignments: any;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.getAssignments();
   }
 
+  public getAssignments(): void {
+    this.http.get('https://localhost:5001/api/assignments').subscribe(
+      response => this.assignments = response,
+      error => console.log(error)
+    );
+  }
 }

@@ -4,15 +4,15 @@ namespace gantting.api.Models
 {
     public class Assignment
     {
-        public int AssignmentId { get; set; }
-        public string AssignmentName { get; set; }
-        public string AssignmentTitle { get; set; }
-        // TODO: public string AssignmentDateCreation { get; set; } on click create task
-        // TODO: public string AssignmentDateDone { get; set; } on click done task
-        public string AssignmentDescription { get; set; }
-        public string AssignmentDateStart { get; set; }
-        public string AssignmentDateEnd { get; set; }
-        public string AssignmentImage { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string title { get; set; }
+        // TODO: public string datecreation { get; set; } on click create task
+        // TODO: public string datedone { get; set; } on click done task
+        public string description { get; set; }
+        public string datestart { get; set; }
+        public string dateend { get; set; }
+        public string image { get; set; }
 
         // !We still have the modeling of tags, assignees, comments, subtasks and priorities;
         // !Study a way to include fields or not in a task. Give several options for creating fields like in Jira and Pipefy.   

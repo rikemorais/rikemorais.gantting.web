@@ -32,6 +32,7 @@ namespace gantting.api
                 context => context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
             services.AddControllers();
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "gantting.api", Version = "v1" });
@@ -53,6 +54,10 @@ namespace gantting.api
             app.UseRouting();
 
             app.UseAuthorization();
+            
+            app.UseCors(x => x.AllowAnyHeader()
+                              .AllowAnyMethod()
+                              .AllowAnyOrigin());
 
             app.UseEndpoints(endpoints =>
             {
