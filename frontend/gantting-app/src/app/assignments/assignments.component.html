@@ -1,7 +1,40 @@
 <h1>Assignments</h1>
+<hr>
 
-<div *ngFor="let assignment of assignments">
-    <p><b>Título: </b>{{assignment.title}}</p>
-    <p><b>Descrição: </b>{{assignment.description}}</p>
-    <hr>
-</div>
+<form action="" class="form-inline">
+    <div class="form-group mb-2">
+       <input type="text" class="form-control mr-2" placeholder="Buscar">
+       <button class="btn btn-outline-sucess">Buscar</button>
+    </div>
+</form>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="assignments && assignments.length">
+        <tr *ngFor="let assignment of assignments">
+            <td>{{assignment.id}}</td>
+            <td>{{assignment.nome}}</td>
+            <td>{{assignment.title}}</td>
+            <td>{{assignment.description}}</td>
+            <td>{{assignment.dateStart}}</td>
+            <td>{{assignment.dateEnd}}</td>
+            <td>{{assignment.image}}</td>
+        </tr>
+    </tbody>
+    <tfoot *ngIf="!assignments.length">
+        <tr>
+            <td colspan="8" class="text-center">
+                <h4>No tasks found!</h4>
+            </td>
+        </tr>
+    </tfoot>
+</table>

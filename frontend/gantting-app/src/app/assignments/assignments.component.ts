@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssignmentsComponent implements OnInit {
 
-  public assignments: any;
+  public assignments: any = [];
 
   constructor(private http: HttpClient) { }
 
