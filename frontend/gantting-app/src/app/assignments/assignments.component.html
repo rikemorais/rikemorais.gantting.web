@@ -11,23 +11,28 @@
     <thead class="thead-dark">
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Image</th>
+            <th>Assignee</th>
             <th>Title</th>
             <th>Description</th>
             <th>Start</th>
             <th>End</th>
-            <th>Image</th>
         </tr>
     </thead>
     <tbody *ngIf="assignments && assignments.length">
         <tr *ngFor="let assignment of assignments">
             <td>{{assignment.id}}</td>
-            <td>{{assignment.nome}}</td>
+            <td>
+                <img src="assets/{{assignment.image}}" 
+                    [style.width.px]="widthImg"
+                    [style.margin.px]="marginImg"
+                >
+            </td>
+            <td>{{assignment.name}}</td>
             <td>{{assignment.title}}</td>
             <td>{{assignment.description}}</td>
             <td>{{assignment.dateStart}}</td>
             <td>{{assignment.dateEnd}}</td>
-            <td>{{assignment.image}}</td>
         </tr>
     </tbody>
     <tfoot *ngIf="!assignments.length">
