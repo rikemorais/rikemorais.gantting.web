@@ -3,7 +3,12 @@
 
 <form action="" class="form-inline">
     <div class="form-group mb-2">
-       <input type="text" class="form-control mr-2" placeholder="Search">
+       <input 
+            type="text" 
+            class="form-control mr-2" 
+            placeholder="Search"
+            [(ngModel)]="filterList.search"
+        >
        <button class="btn btn-outline-success">Search</button>
     </div>
 </form>
@@ -25,7 +30,7 @@
         </tr>
     </thead>
     <tbody *ngIf="assignments && assignments.length">
-        <tr *ngFor="let assignment of assignments">
+        <tr *ngFor="let assignment of assignmentsFiltered">
             <td>
                 <img [collapse]="!showImage"
                      [isAnimated]="true"
