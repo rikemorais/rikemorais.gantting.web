@@ -11,11 +11,16 @@ export class AssignmentsComponent implements OnInit {
   public assignments: any = [];
   widthImg: number = 50;
   marginImg: number = 2;
+  showImage: boolean = true;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.getAssignments();
+  }
+
+  alterImage(): void {
+    this.showImage = !this.showImage;
   }
 
   public getAssignments(): void {

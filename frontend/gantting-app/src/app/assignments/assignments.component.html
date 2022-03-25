@@ -3,15 +3,20 @@
 
 <form action="" class="form-inline">
     <div class="form-group mb-2">
-       <input type="text" class="form-control mr-2" placeholder="Buscar">
-       <button class="btn btn-outline-sucess">Buscar</button>
+       <input type="text" class="form-control mr-2" placeholder="Search">
+       <button class="btn btn-outline-success">Search</button>
     </div>
 </form>
 <table class="table table-striped">
     <thead class="thead-dark">
         <tr>
-            <th>ID</th>
-            <th>Image</th>
+            <th>
+                <button type="button" class="btn btn-outline-light btn-sm"
+                (click)="alterImage()">
+                {{!showImage ? 'Show' : 'Hide'}}
+                </button>
+            </th>
+            <th>#</th>
             <th>Assignee</th>
             <th>Title</th>
             <th>Description</th>
@@ -21,13 +26,15 @@
     </thead>
     <tbody *ngIf="assignments && assignments.length">
         <tr *ngFor="let assignment of assignments">
-            <td>{{assignment.id}}</td>
             <td>
-                <img src="assets/{{assignment.image}}" 
-                    [style.width.px]="widthImg"
-                    [style.margin.px]="marginImg"
+                <img [collapse]="!showImage"
+                     [isAnimated]="true"
+                     src="assets/{{assignment.image}}" 
+                     [style.width.px]="widthImg"
+                     [style.margin.px]="marginImg"
                 >
             </td>
+            <td>{{assignment.id}}</td>
             <td>{{assignment.name}}</td>
             <td>{{assignment.title}}</td>
             <td>{{assignment.description}}</td>
