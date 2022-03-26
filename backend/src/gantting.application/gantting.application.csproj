@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\gantting.domain\gantting.domain.csproj" />
+    <ProjectReference Include="..\gantting.persistence\gantting.persistence.csproj" />
+  </ItemGroup>
+
+</Project>
