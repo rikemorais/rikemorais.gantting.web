@@ -7,9 +7,8 @@
             type="text" 
             class="form-control mr-2" 
             placeholder="Search"
-            [(ngModel)]="filterList.search"
+            [(ngModel)]="filterList"
         >
-       <button class="btn btn-outline-success">Search</button>
     </div>
 </form>
 <table class="table table-striped">
@@ -45,6 +44,10 @@
             <td>{{assignment.description}}</td>
             <td>{{assignment.dateStart}}</td>
             <td>{{assignment.dateEnd}}</td>
+            <td>
+                <button type="button" class="btn btn-primary btn-sm mr-2">Editar</button>
+                <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+            </td>
         </tr>
     </tbody>
     <tfoot *ngIf="!assignments.length">
