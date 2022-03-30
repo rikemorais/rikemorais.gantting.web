@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace gantting.domain
 {
@@ -15,8 +14,5 @@ namespace gantting.domain
         public DateTime End { get; set; }
         public string Image { get; set; }
         public string Priority { get; set; }
-        public IEnumerable<AssignmentComment> AssignmentsComments { get; set; }
-        public IEnumerable<AssignmentSubtask> AssignmentsSubtasks { get; set; }
-        public IEnumerable<AssignmentTag> AssignmentsTags { get; set; }
     }
 }
