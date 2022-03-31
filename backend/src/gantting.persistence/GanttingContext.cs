@@ -9,8 +9,5 @@ namespace gantting.persistence
             : base(options) { }
         public DbSet<Assignee> Assignees { get; set; }
         public DbSet<Assignment> Assignments { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-        public DbSet<Subtask> Subtasks { get; set; }
-        public DbSet<Tag> Tags { get; set; }
     }
 }
